@@ -1,0 +1,35 @@
+<template>
+	<div class="slds-grid slds-wrap">
+		<div class="slds-col slds-size_4-of-4">
+			<p>inside html</p>
+			<div>
+				<!-- Create an Input Field for user to type-->
+				<lightning-input label="test" variant="label-hidden" value={searchKey} type="search" onchange={handleChange}
+					placeholder="type text here">
+				</lightning-input>
+			</div>
+		</div>
+	</div>
+	<div class="slds-box">
+		<template if:false={selectedRecord}>
+			<template if:true={records}>
+				<template for:each={records} for:item="record">
+					<c-child key={record.Id} record={record} onselect={handleSelect} iconname={iconname} fieldname={searchfield}>
+					</c-child>
+				</template>
+			</template>
+		</template>
+		<template if:false={selectedRecord}>
+		</template>
+	</div>
+	<div>
+
+		<!--ul class="slds-m-around_medium">
+			<template for:each={picklistOptionsArr} for:item="optionArr">
+				<li key={optionArr.Id}>
+					{optionArr.Id}
+				</li>
+			</template>
+		</ul-->
+	</div>
+</template>
